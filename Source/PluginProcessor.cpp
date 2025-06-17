@@ -166,7 +166,8 @@ bool SimpleEQAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* SimpleEQAudioProcessor::createEditor()
 {
-    return new SimpleEQAudioProcessorEditor (*this);
+    // return new SimpleEQAudioProcessorEditor (*this);
+    return new juce::GenericAudioProcessorEditor(*this);
 }
 
 //==============================================================================
@@ -223,7 +224,8 @@ SimpleEQAudioProcessor::createParameterLayout()
         choicesStringArray.add(str);
     }
     
-    juce::AudioParameterChoice(<#const ParameterID &parameterID#>, <#const String &parameterName#>, <#const StringArray &choices#>, <#int defaultItemIndex#>)
+    layout.add(std::make_unique<juce::AudioParameterChoice>("LowCut Slope", "LowCut Slope", choicesStringArray, 0));
+    layout.add(std::make_unique<juce::AudioParameterChoice>("HighCut Slope", "HighCut Slope", choicesStringArray, 0));
     
     return layout;
 }
