@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="NFwumL" name="SimpleEQ" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="com.archloner"
+              version="0.0.1" companyEmail="archloner@proton.me">
   <MAINGROUP id="o6zOc5" name="SimpleEQ">
     <GROUP id="{610413AB-7495-58C1-D80E-E8C42119D017}" name="Source">
       <FILE id="TmNYoh" name="PluginProcessor.cpp" compile="1" resource="0"
