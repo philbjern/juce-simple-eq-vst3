@@ -10,6 +10,8 @@
 
 #include <JuceHeader.h>
 
+using Coefficients = Filter::CoefficientsPtr;
+
 enum Slope
 {
     SLOPE_12,
@@ -37,6 +39,11 @@ enum ChainPositions
     PEAK,
     HIGH_CUT
 };
+
+void updatePeakFilter(const ChainSettings& chainSettings);
+void updateCoefficients(Coefficients& old, const Coefficients& replacements);
+
+Coefficients makePeakFilter(const ChainSettings& chainSettings, double sampleRate);
 
 
 //==============================================================================
@@ -88,10 +95,6 @@ public:
 private:
     
     MonoChain leftChain, rightChain;
-    
-    void updatePeakFilter(const ChainSettings& chainSettings);
-    using Coefficients = Filter::CoefficientsPtr;
-    static void updateCoefficients(Coefficients& old, const Coefficients& replacements);
     
     template<int Index, typename ChainType, typename CoefficientType>
     void updateCoefficientsAndMakeBypassFalse(ChainType& chain,
